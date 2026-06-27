@@ -59,7 +59,7 @@ window.addEventListener("scroll", () => {
 let ghostLooking = false;
 
 window.addEventListener("scroll", () => {
-    if (window.scrollY > 1350 && !ghostLooking) {
+    if (window.scrollY > 1200 && !ghostLooking) {
 
         ghost.classList.add("ghostLook");
 
