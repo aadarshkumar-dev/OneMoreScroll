@@ -3,6 +3,7 @@ const alert = document.querySelector(".alert");
 const ghost = document.querySelector(".ghost");
 const wind = document.getElementById("windSound");
 const ghostSound = document.getElementById("ghostSound");
+const bgMusic = document.getElementById("bgMusic");
 const enterBtn = document.getElementById("enterBtn");
 
 document.body.style.overflow = "hidden";
@@ -16,6 +17,7 @@ enterBtn.addEventListener("click", () => {
             wind.pause();
             wind.currentTime = 0;
             audioUnlocked = true;
+            bgMusic.play()
         })
         .catch(error => {
             console.log("Audio error:", error);
