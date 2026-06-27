@@ -1,6 +1,8 @@
 const light = document.querySelector(".light");
 const alert = document.querySelector(".alert");
+const ghost = document.querySelector(".ghost");
 const wind = document.getElementById("windSound");
+const ghostSound = document.getElementById("ghostSound");
 const enterBtn = document.getElementById("enterBtn");
 
 document.body.style.overflow = "hidden";
@@ -50,4 +52,20 @@ window.addEventListener("scroll", () => {
         lampOff = true;
     }
 
+});
+
+let ghostLooking = false;
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 1350 && !ghostLooking) {
+
+        ghost.classList.add("ghostLook");
+
+        if (audioUnlocked) {
+            ghostSound.currentTime = 1;
+            ghostSound.play();
+        }
+
+        ghostLooking = true;
+    }
 });
