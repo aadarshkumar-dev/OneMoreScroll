@@ -69,3 +69,13 @@ window.addEventListener("scroll", () => {
         ghostLooking = true;
     }
 });
+
+const loader = document.querySelector(".loader");
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+        loader.classList.add("hide");
+    }, 1500);
+
+});
