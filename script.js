@@ -36,7 +36,7 @@ wind.addEventListener("timeupdate", () => {
 
 window.addEventListener("scroll", () => {
 
-    if (window.scrollY > 500 && !lampOff) {
+    if (window.scrollY > 200 && !lampOff) {
 
         if (audioUnlocked) {
             wind.play();
