@@ -23,14 +23,12 @@ enterBtn.addEventListener("click", () => {
     alert.style.display = "none";
 });
 
-
 wind.addEventListener("timeupdate", () => {
     if (wind.currentTime >= 1) {
         wind.pause();
         wind.currentTime = 0;
     }
 });
-
 
 window.addEventListener("scroll", () => {
 
