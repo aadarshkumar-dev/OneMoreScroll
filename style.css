@@ -3,6 +3,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -30,13 +31,6 @@ main {
 .ul-2 li:nth-child(2),
 .ul-5 li:nth-child(2) {
     font-weight: bold;
-}
-
-.ul-2 li:nth-child(6),
-.ul-2 li:nth-child(8),
-.ul-5 li:nth-child(5),
-.ul-5 li:nth-child(7) {
-    color: rgba(122, 203, 0, 0.634);
 }
 
 .light {
@@ -157,8 +151,7 @@ main {
     position: fixed;
     top: 40%;
     left: 50%;
-    transform: translateY(-50%);
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     border-radius: 16px;
     height: 200px;
     width: 300px;
@@ -172,6 +165,7 @@ main {
     animation: alertAnime 1s ease-in-out infinite alternate;
     transition: all 0.3s;
     box-shadow: 0 0 30px red;
+    z-index: 10000;
 }
 
 @keyframes alertAnime {
@@ -192,33 +186,40 @@ main {
     cursor: pointer;
 }
 
-.ul-2 li:nth-child(9) {
+.ghost {
     position: relative;
 }
 
-.ul-2 li:nth-child(9)::before {
+.ghost::before {
     content: "";
-    position: absolute;
+    position: fixed;
     inset: 0;
-    background: url("ghost-removebg-preview.png") no-repeat center center fixed;
-    background-size: cover;
+    background: url("ghost-removebg-preview.png") no-repeat center center;
+    background-size: contain;
     transform: scale(0);
-    z-index: -1;
+    opacity: 0;
+    z-index: 9999;
+    pointer-events: none;
 }
 
-.ul-2 li:nth-child(9).ghostLook::before {
-    animation: ghost-fade 1s 1;
+.ghost.ghostLook::before {
+    animation: ghost-fade 1s ease-out 1;
 }
 
 @keyframes ghost-fade {
-    from {
+    0% {
         transform: scale(0);
         opacity: 0;
     }
 
-    to {
+    30% {
         transform: scale(3);
         opacity: 1;
+    }
+
+    100% {
+        transform: scale(3.5);
+        opacity: 0;
     }
 }
 
@@ -229,8 +230,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
-
+    z-index: 99999;
     transition: opacity 1s ease;
 }
 
@@ -252,9 +252,8 @@ main {
 }
 
 .ul-3-w {
-    border-left: 3px solid rgb(81, 81, 81);
-    padding-left: 10px;
-    color: rgb(81, 81, 81);
+    padding-left: 0;
+    color: inherit;
 }
 
 .date {
@@ -280,37 +279,43 @@ p {
 
 h1 {
     text-align: center;
-    font-size: 1.3rem;
-    margin: 10px 0 60px 0;
+    margin: 30px 0 60px 0;
     font-family: "Creepster", system-ui;
     font-weight: 400;
-    font-style: normal;
     font-size: 80px;
     text-transform: uppercase;
-    color: transparent;
+    color: #8b0000;
     background-image: url(rusty-metal-wall-with-blood-splutter_23-2151841001.avif);
-    background-size: cover;
-    background-repeat: repeat-x;
+    background-size: 200% auto;
+    background-repeat: repeat;
     background-position: 0 0;
     -webkit-background-clip: text;
     background-clip: text;
-    animation: moveBg 10s linear infinite;
+    color: transparent;
+    animation: moveBg 15s linear infinite;
 }
-
 
 @keyframes moveBg {
     from {
-        background-position: 0 0;
+        background-position: 0px 0px;
     }
 
     to {
-        background-position: 100% 0;
+        background-position: -300px 0px;
     }
+}
+
+.ul-footer{
+    text-align: center;
+}
+
+.ul-footer li:first-child{
+    margin-bottom: 80px;
 }
 
 @media only screen and (min-width: 600px) {
     main {
-        width: 309px;
+        width: 450px;
         margin: 0 auto;
     }
 }
