@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Disallow crawling of any test or backup setups if you have them
+Disallow: /test/
+Disallow: /private/
+
+# Point search engines to your official sitemap file
+Sitemap: https://aadarshkumar-dev.github.io/OneMoreScroll/sitemap.xml
