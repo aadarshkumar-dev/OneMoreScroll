@@ -20,6 +20,7 @@ let lampAnimating = false;
 
 enterBtn.addEventListener("click", () => {
 
+    bgMusic.volume = 0.5;
     wind.play()
         .then(() => {
 
