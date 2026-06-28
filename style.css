@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Stack+Sans+Headline:wght@200..700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -24,18 +26,16 @@ main {
     z-index: 500;
 }
 
-.ul-1 li:nth-child(1),
-.ul-2 li:nth-child(1) {
-    color: red;
-}
-
 .ul-1 li:nth-child(2),
-.ul-2 li:nth-child(2) {
+.ul-2 li:nth-child(2),
+.ul-5 li:nth-child(2) {
     font-weight: bold;
 }
 
 .ul-2 li:nth-child(6),
-.ul-2 li:nth-child(8) {
+.ul-2 li:nth-child(8),
+.ul-5 li:nth-child(5),
+.ul-5 li:nth-child(7) {
     color: rgba(122, 203, 0, 0.634);
 }
 
@@ -50,13 +50,17 @@ main {
             rgba(255, 176, 0, 0.15) 30%,
             rgba(255, 176, 0, 0.05) 55%,
             transparent 75%);
-    /* filter: blur(8px); */
+    filter: blur(8px);
     pointer-events: none;
     opacity: 1;
 }
 
 .light.off {
     opacity: 0;
+}
+
+.body-flicker {
+    animation: body-flicker 2s;
 }
 
 .flicker {
@@ -89,6 +93,56 @@ main {
     }
 
     80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes body-flicker {
+    0% {
+        opacity: 1;
+    }
+
+    5% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    15% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    35% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    65% {
+        opacity: 0.3;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0;
+    }
+
+    82% {
         opacity: 1;
     }
 
@@ -176,7 +230,68 @@ main {
     pointer-events: none;
 }
 
-@media only screen and (max-width: 600px) {}
+.ul-2,
+.ul-3,
+.ul-4 {
+    margin: 70px 0;
+}
+
+.ul-3-w {
+    border-left: 3px solid rgb(81, 81, 81);
+    padding-left: 10px;
+    color: rgb(81, 81, 81);
+}
+
+.date {
+    color: red;
+    animation: dateColor 1s ease-in-out infinite alternate;
+    transition: all 0.3s;
+}
+
+@keyframes dateColor {
+    from {
+        color: red;
+    }
+
+    to {
+        color: transparent;
+    }
+}
+
+p {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.3rem;
+    margin: 10px 0 60px 0;
+    font-family: "Creepster", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 80px;
+    text-transform: uppercase;
+    color: transparent;
+    background-image: url(rusty-metal-wall-with-blood-splutter_23-2151841001.avif);
+    background-size: cover;
+    background-repeat: repeat-x;
+    background-position: 0 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: moveBg 10s linear infinite;
+}
+
+
+@keyframes moveBg {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 100% 0;
+    }
+}
 
 @media only screen and (min-width: 600px) {
     main {
