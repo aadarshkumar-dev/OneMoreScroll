@@ -152,21 +152,36 @@ main {
 }
 
 .alert {
-    background-color: rgb(28, 112, 83);
-    height: 200px;
-    width: 300px;
+    background: url(rusty-metal-wall-with-blood-splutter_23-2151841001.avif) no-repeat center center fixed;
+    background-size: cover;
     position: fixed;
     top: 40%;
     left: 50%;
     transform: translateY(-50%);
     transform: translateX(-50%);
     border-radius: 16px;
+    height: 200px;
+    width: 300px;
+    color: rgb(0, 255, 98);
+    font-size: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 20px;
-    color: rgb(0, 255, 98);
+    animation: alertAnime 1s ease-in-out infinite alternate;
+    transition: all 0.3s;
+    box-shadow: 0 0 30px red;
+}
+
+@keyframes alertAnime {
+    from {
+        box-shadow: 0 0 30px red;
+    }
+
+    to {
+        box-shadow: 0 0 30px rgba(255, 176, 0, 0);
+    }
 }
 
 .alert button {
