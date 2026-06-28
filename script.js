@@ -108,7 +108,7 @@ window.addEventListener("scroll", () => {
 
     }
 
-    if (!ghostLooking && window.scrollY > 1400) {
+    if (!ghostLooking && window.scrollY > 1700) {
 
         ghost.classList.add("ghostLook");
         document.body.style.overflow = "hidden";
@@ -123,7 +123,7 @@ window.addEventListener("scroll", () => {
         setTimeout(() => {
             ghostLooking = true;
             document.body.style.overflow = "auto";
-        }, 1000);
+        }, 2000);
 
     }
 
